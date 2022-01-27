@@ -4,3 +4,13 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #0a192a;
+  min-height: 200vh;
+  width: 100%;
+}

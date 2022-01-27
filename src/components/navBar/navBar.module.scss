@@ -1,0 +1,17 @@
+.navigation {
+  position: fixed;
+  z-index: 2;
+  backdrop-filter: blur(20px);
+  top: 0;
+  width: 100%;
+}
+
+.menuIcon {
+  display: none;
+}
+
+@media screen and (max-width: 798px) {
+  .menuIcon {
+    display: block;
+  }
+}
