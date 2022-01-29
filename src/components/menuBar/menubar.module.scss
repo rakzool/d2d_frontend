@@ -3,3 +3,20 @@
   height: 100%;
   color: white;
 }
+
+.DrawerHeader {
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 0.1px solid #ffffff34;
+}
+
+.DrawerNavigation {
+  margin-top: 1rem;
+
+  li {
+    list-style: none;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+}

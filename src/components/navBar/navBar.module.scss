@@ -1,3 +1,5 @@
+@import "../../styles/mixin";
+
 .navigation {
   position: fixed;
   z-index: 2;
@@ -10,8 +12,21 @@
   display: none;
 }
 
+.navigationList {
+  @include flexDesign(row, center, space-around);
+  width: 20%;
+  margin-right: 1rem;
+  li {
+    list-style: none;
+  }
+}
+
 @media screen and (max-width: 798px) {
   .menuIcon {
     display: block;
+  }
+
+  .navigationList {
+    display: none;
   }
 }
