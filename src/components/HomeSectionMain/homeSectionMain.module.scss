@@ -1,0 +1,129 @@
+@import "../../styles/mixin";
+
+.OpeningBanner {
+  // border: 1px solid white;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+}
+
+.logoRender {
+  text-align: center;
+  margin-left: 2.5rem;
+  h1 {
+    font-family: "M PLUS Code Latin";
+    font-size: 4rem;
+  }
+  .byline {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    padding-top: 18px;
+    margin-bottom: 1rem;
+    span {
+      color: #3399ff;
+      font-size: 1.9rem;
+    }
+  }
+}
+.Content {
+  @include flexDesign(column, flex-start, center);
+  position: absolute;
+  padding: 2rem;
+  width: 50%;
+}
+.flexer {
+  flex: 1;
+}
+.imageContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.ImageBox {
+  margin-top: -6rem;
+  flex: 1.5;
+  height: 100vh;
+}
+
+.Infographic {
+  padding: 1.5rem 2.5rem 1rem 2.5rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  p {
+    font-family: "Rajdhani", sans-serif;
+    text-align: justify;
+  }
+}
+
+.registerBtn {
+  margin-left: 2.2rem;
+  margin-top: 1rem;
+
+  & :first-child {
+    letter-spacing: 2px;
+    text-transform: initial;
+    font-weight: bolder;
+    font-size: 1rem;
+    width: 20rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 798px) {
+  .ImageBox {
+    display: none;
+  }
+  .Content {
+    position: initial;
+    padding: 0;
+    width: 100%;
+    margin-top: -7rem;
+  }
+
+  .logoRender {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    h1 {
+      font-size: 2.2rem;
+    }
+    .byline {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      padding-top: 10px;
+      margin-bottom: 0.7rem;
+      span {
+        color: #3399ff;
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .Infographic {
+    margin-top: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    p {
+      font-family: "Rajdhani", sans-serif;
+      text-align: justify;
+    }
+  }
+
+  .registerBtn {
+    margin-left: 1.8rem;
+    margin-top: 2rem;
+
+    & :first-child {
+      letter-spacing: 2px;
+      text-transform: initial;
+      font-weight: bolder;
+      font-size: 1rem;
+      width: 18rem;
+      margin-top: 1rem;
+    }
+  }
+}

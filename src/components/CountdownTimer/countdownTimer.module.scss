@@ -1,0 +1,43 @@
+.TimerClock {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+
+  span {
+    font-size: 4rem;
+  }
+}
+
+.secondDial {
+  color: #3399ff;
+}
+
+.ClockDial {
+  & :first-child {
+    font-size: 4rem;
+    font-family: "Fira Code", monospace;
+  }
+  & :last-child {
+    font-size: 1rem;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: bolder;
+  }
+}
+
+@media screen and (max-width: 798px) {
+  .TimerClock {
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    span {
+      font-size: 3rem;
+    }
+  }
+  .ClockDial {
+    & :first-child {
+      font-size: 3rem;
+    }
+    & :last-child {
+      font-size: 1rem;
+    }
+  }
+}
