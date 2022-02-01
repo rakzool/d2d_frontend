@@ -28,7 +28,7 @@ export default function NavBar(props) {
               <MenuBar />
             </span>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Dare 2 devlope
+              Dare 2 develop
             </Typography>
             <ul className={Styles.navigationList}>
               <li>About</li>
