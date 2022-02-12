@@ -1,0 +1,81 @@
+@import "../../styles/mixin";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.loginPageContainer{
+    min-height: 100vh;
+    width: 100%;
+    @include flexDesign(row,center,center);
+
+}
+
+.backdrop{
+    position: fixed;
+    z-index: -1;
+}
+
+
+.dialogDisplay{
+    padding: 1rem;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, .5);
+    color: white;
+     
+    background-color: rgba(10, 25, 42, 0.733);
+     
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+     
+     
+}
+
+.logoArea{
+    margin: 2rem 7rem ;
+    
+    
+     @include flexDesign(row,center,center);
+
+    div{
+        @include flexDesign(row,center,center);
+    }
+
+    .GDSCLogo{
+        width: 70px;
+        height: 35px;
+
+    }
+    .TCFLogo{
+        width: 55px;
+        height: 55px;
+
+    }
+}
+
+.formArea{
+    margin: 2.5rem 3.5rem 2rem 3.5rem;
+    
+    h1{
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        margin-left: -1rem;
+        }
+
+
+}
+
+.SignInButton{
+    margin-left: -1rem;
+    margin-top: 2rem;
+}
+
+.RegisterArea{
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 3rem;
+    margin-left: -1rem;
+    font-size: 1.1rem;
+
+    span{
+        font-weight: bolder;
+        color: #3399FF;
+    }
+}
