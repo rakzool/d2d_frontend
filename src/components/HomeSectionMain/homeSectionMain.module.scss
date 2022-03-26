@@ -1,9 +1,8 @@
 @import "../../styles/mixin";
 
-.OpeningBanner {
-  // border: 1px solid white;
+.OpeningBanner { 
   width: 100%;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
 }
 
@@ -69,6 +68,19 @@
     width: 20rem;
     margin-top: 1rem;
   }
+}
+
+@media screen and (max-width:1023px) {
+  .ImageBox{
+     
+  }
+  .Content {
+    position: initial;
+    padding: 0;
+    width: 100%;
+    margin-top: -7rem;
+  }
+    
 }
 
 @media screen and (max-width: 798px) {

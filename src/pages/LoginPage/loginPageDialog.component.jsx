@@ -9,6 +9,8 @@ import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
+
+import { userLogin } from "../../api/api";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -36,6 +38,7 @@ export default function LoginPageDialog() {
   const handelSubmit = (event) => {
     event.preventDefault();
     console.log(user);
+    userLogin(user.email,user.password);
     setUser({
       email: "",
       password: "",

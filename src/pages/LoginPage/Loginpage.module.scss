@@ -1,4 +1,5 @@
 @import "../../styles/mixin";
+@import "../../styles/Variables";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .loginPageContainer{
@@ -17,9 +18,9 @@
 .dialogDisplay{
     padding: 1rem;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, .5);
-    color: white;
+    color: $Text-color;
      
-    background-color: rgba(10, 25, 42, 0.733);
+    background-color:$Background-Dark-Pimary;
      
     backdrop-filter: blur(1px);
     border-radius: 10px;
@@ -76,6 +77,6 @@
 
     span{
         font-weight: bolder;
-        color: #3399FF;
+        color: $Color-accent ;
     }
 }
