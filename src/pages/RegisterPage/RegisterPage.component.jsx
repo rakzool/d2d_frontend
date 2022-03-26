@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
-import { letterSpacing, textTransform } from "@mui/system";
+ 
 
 export default function RegisterPage() {
   const teamSize = [
