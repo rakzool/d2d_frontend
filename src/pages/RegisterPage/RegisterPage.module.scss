@@ -49,8 +49,14 @@
   }
 }
 
-.line{
-    color: white;
+ 
+
+.InnerField{
+     width: 55ch;
+
+}
+.SelectField{
+    width: 20ch;
 }
 
 @media screen and (max-width: 1023px) {
@@ -61,9 +67,24 @@
   }
 }
 @media screen and (max-width: 798px) {
+
+    
+
   .DivWrapper {
     h1 {
       font-size: 1.8rem;
     }
+
+    .formWrapper{         
+           margin: 1rem; 
+           padding: 2rem;
+    }
+  }
+
+  .InnerField{
+      width: 100%;
+  }
+  .SelectField{
+      width: 90%;
   }
 }

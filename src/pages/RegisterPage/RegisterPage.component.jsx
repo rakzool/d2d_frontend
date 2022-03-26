@@ -54,7 +54,7 @@ export default function RegisterPage() {
       },
     });
 
-    console.log(teamdata.data.teamSize);
+    
   };
   return (
     <div className={Classes.DivWrapper}>
@@ -72,20 +72,23 @@ export default function RegisterPage() {
                   required
                   label="Team Name"
                   defaultValue="   "
-                  sx={{ mr: 3, width: "55ch" }}
+                  sx={{ mr: 3, mt:2  }}
+                  className={Classes.InnerField}
                 />
                 <TextField
                   required
                   label="Team Leader Name"
                   defaultValue="   "
-                  sx={{ ml: 3, width: "55ch" }}
+                  sx={{ mr: 3,mt:2 }}
+                  className={Classes.InnerField}
                 />
                 <TextField
                   select
                   label="Team Size"
                   value={teamdata.data.teamSize}
                   onChange={handleTeamChange}
-                  sx={{ ml: 3, width: "20ch" }}
+                  sx={{ mr: 3,mt:2 }}
+                  className={Classes.SelectField}
                 >
                   {teamSize.map((ele, index) => {
                     return (
@@ -99,16 +102,19 @@ export default function RegisterPage() {
                 <div className={Classes.dynamicFields}>
                  
                   <h1>Team Details</h1>
+                  <div >
                   {fields.map((ele) => {
                     return (
                       <TextField
                         required
                         label={`Name of Member ${ele}`}
                         defaultValue="   "
-                        sx={{ mr: 4, width: "32ch" }}
+                        sx={{ mr: 4,mt:2, width: "32ch" }}
+                        key={ele}
                       />
                     );
                   })}
+                  </div>
                 </div>
               </Box>
             </ThemeProvider>
