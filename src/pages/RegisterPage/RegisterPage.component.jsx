@@ -5,6 +5,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
+import { Button } from "@mui/material";
+import { letterSpacing, textTransform } from "@mui/system";
 
 export default function RegisterPage() {
   const teamSize = [
@@ -116,8 +118,35 @@ export default function RegisterPage() {
                   })}
                   </div>
                 </div>
+                <div className={Classes.loginArea}>
+                  <h1>Account Credentials</h1>
+                  <div className={Classes.userInfo}>
+                    <TextField label = "User Name"   sx={{mt:3 }} className={Classes.UserFields}/>
+                    <TextField type="password" label = "Password"   sx={{mt:3 }} className={Classes.UserFields}/>
+                    <TextField type="password" label = "Confirm Password"  sx={{mt:3 }} className={Classes.UserFields}/>
+                  </div>
+                </div>
               </Box>
+
             </ThemeProvider>
+            <div className={Classes.submitArea}>
+            <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#3399FF",
+                  borderRadius: "5px",
+                  padding: "5px 25px",
+                  color: "white",
+                  fontSize : "1.2rem",
+                  letterSpacing : "2px",
+                  textTransform : "initial"
+                }}
+                type="submit"
+              >
+                Submit
+              </Button>
+            </div>
+
           </form>
         </div>
       </div>

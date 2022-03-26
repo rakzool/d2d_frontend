@@ -116,7 +116,7 @@ export default function LoginPageDialog() {
                   padding: "5px 25px",
                   color: "white",
                 }}
-                type="subbmit"
+                type="submit"
               >
                 Let's Go
               </Button>
