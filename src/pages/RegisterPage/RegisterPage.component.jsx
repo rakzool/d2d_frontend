@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Classes from "./RegisterPage.module.scss";
 import ParticleBackground from "../../components/ParticleEffect/particleBackground.component";
+import { UserRegister } from "../../api/api";
+
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
@@ -26,12 +28,14 @@ export default function RegisterPage() {
       label: "Four",
     },
   ];
-const [tSize,settSize] = useState(1);
+  const [tSize, settSize] = useState(1);
 
   const [credentials, setCredentials] = useState({
     userName: "",
     password: "",
     size: "",
+    phone: "",
+    email: "",
     data: {
       teamName: "",
       teamLead: "",
@@ -50,11 +54,11 @@ const [tSize,settSize] = useState(1);
     },
   });
 
-  const handleSizeChange = (event) =>{
-    const {value,name} = event.target;
-    setCredentials({...credentials, [name] : value.toString()});
+  const handleSizeChange = (event) => {
+    const { value, name } = event.target;
+    setCredentials({ ...credentials, [name]: value.toString() });
     settSize(value);
-  }
+  };
 
   const handleTeamChange = (event) => {
     const { value, name } = event.target;
@@ -73,13 +77,15 @@ const [tSize,settSize] = useState(1);
   const handleSubmit = (event) => {
     event.preventDefault();
 
-     
-    console.log(credentials);
+    // console.log(credentials);
+    UserRegister(credentials);
 
     setCredentials({
       userName: "",
       password: "",
       size: "",
+      phone: "",
+      email: "",
       data: {
         teamName: "",
         teamLead: "",
@@ -121,6 +127,25 @@ const [tSize,settSize] = useState(1);
                   sx={{ mr: 3, mt: 2 }}
                   className={Classes.InnerField}
                 />
+                <TextField
+                  required
+                  label="Email"
+                  name="email"
+                  onChange={handleDataChange}
+                  value={credentials.email}
+                  sx={{ mr: 3, mt: 2 }}
+                  className={Classes.InnerField}
+                />
+                <TextField
+                  required
+                  label="Whatsapp Number"
+                  name="phone"
+                  onChange={handleDataChange}
+                  value={credentials.phone}
+                  sx={{ mr: 3, mt: 2 }}
+                  className={Classes.InnerField}
+                />
+
                 <TextField
                   select
                   label="size"
