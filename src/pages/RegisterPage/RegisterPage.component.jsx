@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
- 
 
 export default function RegisterPage() {
   const teamSize = [
@@ -27,20 +26,23 @@ export default function RegisterPage() {
       label: "Four",
     },
   ];
+const [tSize,settSize] = useState(1);
 
-  const [teamdata, setTeamData] = useState({
-    teamName: "",
-    teamLead: "",
+  const [credentials, setCredentials] = useState({
+    userName: "",
+    password: "",
+    size: "",
     data: {
-      teamSize: 1,
-      memberOne: "",
-      memberTwo: "",
-      memberThree: "",
-      memberFour: "",
+      teamName: "",
+      teamLead: "",
+      member1: "",
+      member2: "",
+      member3: "",
+      member4: "",
     },
   });
 
-  let fields = new Array(teamdata.data.teamSize).fill("").map((_, i) => i + 1);
+  let fields = new Array(tSize).fill("").map((_, i) => i + 1);
 
   const darkTheme = createTheme({
     palette: {
@@ -48,48 +50,84 @@ export default function RegisterPage() {
     },
   });
 
+  const handleSizeChange = (event) =>{
+    const {value,name} = event.target;
+    setCredentials({...credentials, [name] : value.toString()});
+    settSize(value);
+  }
+
   const handleTeamChange = (event) => {
-    const value = event.target.value;
-    setTeamData({
+    const { value, name } = event.target;
+
+    setCredentials({
+      ...credentials,
+      data: { ...credentials.data, [name]: value },
+    });
+  };
+
+  const handleDataChange = (event) => {
+    const { value, name } = event.target;
+    setCredentials({ ...credentials, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+     
+    console.log(credentials);
+
+    setCredentials({
+      userName: "",
+      password: "",
+      size: "",
       data: {
-        teamSize: value,
+        teamName: "",
+        teamLead: "",
+        teamSize: "",
+        member1: "",
+        member2: "",
+        member3: "",
+        member4: "",
       },
     });
-
-    
   };
   return (
     <div className={Classes.DivWrapper}>
-       <div className={Classes.backdrop}>
+      <div className={Classes.backdrop}>
         <ParticleBackground />
       </div>
       <div>
         <h1>Register</h1>
         <div className={Classes.formWrapper}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <ThemeProvider theme={darkTheme}>
               <h1>Basic Details</h1>
               <Box>
                 <TextField
                   required
                   label="Team Name"
-                  defaultValue="   "
-                  sx={{ mr: 3, mt:2  }}
+                  name="teamName"
+                  value={credentials.data.teamName}
+                  onChange={handleTeamChange}
+                  sx={{ mr: 3, mt: 2 }}
                   className={Classes.InnerField}
                 />
                 <TextField
                   required
                   label="Team Leader Name"
-                  defaultValue="   "
-                  sx={{ mr: 3,mt:2 }}
+                  name="teamLead"
+                  onChange={handleTeamChange}
+                  value={credentials.data.teamLead}
+                  sx={{ mr: 3, mt: 2 }}
                   className={Classes.InnerField}
                 />
                 <TextField
                   select
-                  label="Team Size"
-                  value={teamdata.data.teamSize}
-                  onChange={handleTeamChange}
-                  sx={{ mr: 3,mt:2 }}
+                  label="size"
+                  value={tSize}
+                  name="size"
+                  onChange={handleSizeChange}
+                  sx={{ mr: 3, mt: 2 }}
                   className={Classes.SelectField}
                 >
                   {teamSize.map((ele, index) => {
@@ -102,51 +140,70 @@ export default function RegisterPage() {
                 </TextField>
 
                 <div className={Classes.dynamicFields}>
-                 
                   <h1>Team Details</h1>
-                  <div >
-                  {fields.map((ele) => {
-                    return (
-                      <TextField
-                        required
-                        label={`Name of Member ${ele}`}
-                        defaultValue="   "
-                        sx={{ mr: 4,mt:2, width: "32ch" }}
-                        key={ele}
-                      />
-                    );
-                  })}
+                  <div>
+                    {fields.map((ele) => {
+                      return (
+                        <TextField
+                          required
+                          label={`Name of Member ${ele}`}
+                          name={`member${ele}`}
+                          value={credentials.data[`member${ele}`]}
+                          onChange={handleTeamChange}
+                          sx={{ mr: 4, mt: 2, width: "32ch" }}
+                          key={ele}
+                        />
+                      );
+                    })}
                   </div>
                 </div>
                 <div className={Classes.loginArea}>
                   <h1>Account Credentials</h1>
                   <div className={Classes.userInfo}>
-                    <TextField label = "User Name"   sx={{mt:3 }} className={Classes.UserFields}/>
-                    <TextField type="password" label = "Password"   sx={{mt:3 }} className={Classes.UserFields}/>
-                    <TextField type="password" label = "Confirm Password"  sx={{mt:3 }} className={Classes.UserFields}/>
+                    <TextField
+                      label="User Name"
+                      name="userName"
+                      onChange={handleDataChange}
+                      value={credentials.userName}
+                      sx={{ mt: 3 }}
+                      className={Classes.UserFields}
+                    />
+                    <TextField
+                      type="password"
+                      label="Password"
+                      name="password"
+                      value={credentials.password}
+                      onChange={handleDataChange}
+                      sx={{ mt: 3 }}
+                      className={Classes.UserFields}
+                    />
+                    <TextField
+                      type="password"
+                      label="Confirm Password"
+                      sx={{ mt: 3 }}
+                      className={Classes.UserFields}
+                    />
                   </div>
                 </div>
               </Box>
-
             </ThemeProvider>
             <div className={Classes.submitArea}>
-            <Button
+              <Button
                 variant="contained"
                 sx={{
                   backgroundColor: "#3399FF",
                   borderRadius: "5px",
                   padding: "5px 25px",
                   color: "white",
-                  fontSize : "1.2rem",
-                  letterSpacing : "2px",
-                  textTransform : "initial"
+                  fontSize: "1.2rem",
+                  letterSpacing: "2px",
+                  textTransform: "initial",
                 }}
                 type="submit"
               >
                 Submit
               </Button>
             </div>
-
           </form>
         </div>
       </div>

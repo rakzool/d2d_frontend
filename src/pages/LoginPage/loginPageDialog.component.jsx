@@ -38,7 +38,7 @@ export default function LoginPageDialog() {
   const handelSubmit = (event) => {
     event.preventDefault();
     console.log(user);
-    userLogin(user.email,user.password);
+    userLogin(user.email, user.password);
     setUser({
       email: "",
       password: "",
@@ -125,7 +125,7 @@ export default function LoginPageDialog() {
         </form>
 
         <div className={Styles.RegisterArea}>
-          Don't have an account ?{" "}
+          Don't have an account ?
           <span>
             <Link to="/register">Register Here</Link>
           </span>
