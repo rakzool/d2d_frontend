@@ -89,7 +89,6 @@ export default function RegisterPage() {
       data: {
         teamName: "",
         teamLead: "",
-        teamSize: "",
         member1: "",
         member2: "",
         member3: "",
@@ -148,7 +147,7 @@ export default function RegisterPage() {
 
                 <TextField
                   select
-                  label="size"
+                  label="Team size"
                   value={tSize}
                   name="size"
                   onChange={handleSizeChange}

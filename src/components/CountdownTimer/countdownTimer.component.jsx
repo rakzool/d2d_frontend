@@ -9,7 +9,7 @@ export default function CountdownTimer() {
 
   let interval = useRef();
   const startTimer = () => {
-    const countdownDate = new Date("April 1, 2022 09:00:00").getTime();
+    const countdownDate = new Date("April 15, 2022 09:00:00").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();

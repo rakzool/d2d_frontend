@@ -35,10 +35,19 @@ export default function LoginPageDialog() {
     setUser({ ...user, [name]: value });
   };
 
-  const handelSubmit = (event) => {
+  const handelSubmit = async (event) => {
     event.preventDefault();
-    console.log(user);
-    userLogin(user.email, user.password);
+     
+    const response = await userLogin(user.email, user.password);
+    console.log(response.data.team);
+    if (response.data.team) {
+      localStorage.setItem("loggedIn" , true);
+      localStorage.setItem("token", response.data.team);
+      alert("Login successful");
+      window.location.href = "/dashboard";
+    } else {
+      alert("Please Check Username and Password");
+    }
     setUser({
       email: "",
       password: "",
