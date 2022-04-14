@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseRoute = "https://dare2dev-api.herokuapp.com";
+const baseRoute = "https://dare2dev-api.herokuapp.com/";
 
 const userLogin = async (email, password) => {
   const slug = "/api/login";
@@ -39,4 +39,26 @@ const UserRegister = async (userData) => {
   }
 };
 
-export { userLogin, UserRegister };
+const GetTeamDetails = async (userName) => {
+  const slug = "/api/teamDetails";
+  const url = `${baseRoute}${slug}`;
+
+  try {
+    const data = await axios
+      .get(url, {
+        params: {
+          userName: userName,
+        },
+      })
+      .then((response) => {
+        let finalResponse = response.data;
+        return finalResponse;
+      });
+
+    return data;
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+export { userLogin, UserRegister, GetTeamDetails };

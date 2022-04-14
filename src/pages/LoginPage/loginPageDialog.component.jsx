@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
+ 
 
 import { userLogin } from "../../api/api";
 import IconButton from "@mui/material/IconButton";
@@ -25,7 +26,10 @@ export default function LoginPageDialog() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  
+
   const navigate = useNavigate();
+ 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -34,6 +38,7 @@ export default function LoginPageDialog() {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
+ 
 
   const handelSubmit = async (event) => {
     event.preventDefault();
@@ -42,7 +47,8 @@ export default function LoginPageDialog() {
     console.log(response.data.team);
     if (response.data.team) {
       localStorage.setItem("token", response.data.team);
-      alert("Login successful");
+       
+       
      navigate("/dashboard");
     } else {
       alert("Please Check Username and Password");
@@ -131,6 +137,7 @@ export default function LoginPageDialog() {
             </div>
           </ThemeProvider>
         </form>
+         
 
         <div className={Styles.RegisterArea}>
           Don't have an account ?

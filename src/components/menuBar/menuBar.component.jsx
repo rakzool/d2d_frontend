@@ -6,7 +6,7 @@ import { FaBars } from "react-icons/fa";
 import Styles from "./menubar.module.scss";
 import DrawerContent from "./drawerContent.component";
 
-export default function MenuBar() {
+export default function MenuBar({navLinks}) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const toggleDrawer = (value) => {
     setDrawerOpen(value);
@@ -30,7 +30,7 @@ export default function MenuBar() {
         onOpen={() => toggleDrawer(true)}
       >
         <div className={Styles.dawerStyle}>
-          <DrawerContent />
+          <DrawerContent navLinks = {navLinks}/>
         </div>
       </SwipeableDrawer>
     </div>

@@ -19,13 +19,14 @@ export default function NavBar(props) {
   };
 
   const navigate = useNavigate();
+  const navLinks = ['About','Contact'];
   return (
     <div className={Styles.navigation}>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" style={appStyle}>
           <Toolbar>
             <span className={Styles.menuIcon}>
-              <MenuBar />
+              <MenuBar navLinks = {navLinks} />
             </span>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Dare 2 develop

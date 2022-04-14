@@ -1,6 +1,113 @@
+@import "../../styles/mixin";
+@import "../../styles/Variables";
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
 .main{
     background-color: #0a192ae8;
     min-width: 100%;
     min-height: 91.4vh;
     color: white;
+    padding : 2rem;
+}
+
+.mainSpinner{
+    @include flexDesign(row,center,center);
+    background-color: #0a192ae8;
+    min-width: 100%;
+    min-height: 91.4vh;
+    color: white;
+
+}
+
+.conentArea{
+    border: 1px solid rgba(255, 255, 255, 0.555);
+    padding-bottom: 5rem;
+    border-radius: 15px;
+    
+    
+    h2{
+        border-radius: 15px 15px 0px 0px;
+        font-size: 2.5rem;
+        padding: 0.3rem 2rem;
+        font-family: 'Fira Code', monospace;
+        letter-spacing: 2px;
+        background-color: $Color-accent;
+    }
+
+    .list{
+        width:50%;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+       
+        .avatar{
+            border-radius: 40%;
+            width: 7rem;
+            height : 7rem;
+        }
+    }
+
+    
+}
+
+.listInner{
+     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.members{
+    padding-left: 5rem;
+    margin-top: 3rem;
+    h3{
+        padding: 1rem 0rem;
+        font-size: 2rem;
+    }
+}
+.memberName{
+    h6{
+        font-family: 'Fira Code', monospace;
+        color: $success;
+        padding-top: 1rem;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+}
+
+.DetailArea{
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 3px;
+    margin-top: 0.5rem;
+    padding: 1.5rem;
+    display :flex;
+    justify-content: flex-start;
+    
+    h4{
+         
+        box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+        color : white;
+        background-color:  $success;
+       border-radius: 5px;
+        margin-right: 2rem;
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span{
+            color: $Background-Dark-Secondary;
+            font-size: 1.5rem;
+            font-weight: bolder;
+
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }

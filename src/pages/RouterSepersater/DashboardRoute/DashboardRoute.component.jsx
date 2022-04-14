@@ -8,6 +8,7 @@ export default function DashbordRoute() {
 
   const [login,setLogin] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [user,setUser] = useState({});
 
   useEffect(() => {
     const sudo = async() => {
@@ -22,6 +23,7 @@ export default function DashbordRoute() {
           if(user.userName === 'admin'){
             setIsAdmin(true);
           }
+          setUser(user);
           setLogin(true);
         }
       }
@@ -45,8 +47,8 @@ export default function DashbordRoute() {
     else{
       return(
         <div>
-        <DashboardHeader />
-        <Outlet />
+        <DashboardHeader teamName = {user.teamName}/>
+        <Outlet teamName = {user.teamName}/>
       </div>
        );
     }

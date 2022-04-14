@@ -8,9 +8,7 @@
   width: 100%;
 }
 
-.menuIcon {
-  display: none;
-}
+
 
 .navigationList {
   @include flexDesign(row, center, space-around);
