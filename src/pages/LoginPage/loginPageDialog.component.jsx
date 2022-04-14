@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Styles from "./Loginpage.module.scss";
 import GDSC from "./gdscWhite.png";
 import Trinity from "./Trinity_White.png";
-
+import { useNavigate } from 'react-router';
 import { Link } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
@@ -25,7 +25,7 @@ export default function LoginPageDialog() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -41,10 +41,9 @@ export default function LoginPageDialog() {
     const response = await userLogin(user.email, user.password);
     console.log(response.data.team);
     if (response.data.team) {
-      localStorage.setItem("loggedIn" , true);
       localStorage.setItem("token", response.data.team);
       alert("Login successful");
-      window.location.href = "/dashboard";
+     navigate("/dashboard");
     } else {
       alert("Please Check Username and Password");
     }
@@ -136,7 +135,7 @@ export default function LoginPageDialog() {
         <div className={Styles.RegisterArea}>
           Don't have an account ?
           <span>
-            <Link to="/register">Register Here</Link>
+            <Link to="/register">&nbsp;Register Here</Link>
           </span>
         </div>
       </div>

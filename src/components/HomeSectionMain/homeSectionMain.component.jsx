@@ -16,7 +16,7 @@ export default function HomeSectionMain() {
           <div className={Styles.logoRender}>
             <h1>{`< logo goes here >`}</h1>
             <div className={Styles.byline}>
-              Imagin . <span>Innovate</span> . Create
+              Imagine . <span>Innovate</span> . Create
             </div>
           </div>
           <CountdownTimer />

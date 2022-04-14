@@ -1,0 +1,32 @@
+@import "../../styles/mixin";
+
+.navigation {
+
+  z-index: 2;
+  backdrop-filter: blur(20px);
+  top: 0;
+  width: 100%;
+}
+
+.menuIcon {
+  display: none;
+}
+
+.navigationList {
+  @include flexDesign(row, center, space-around);
+  width: 20%;
+  margin-right: 1rem;
+  li {
+    list-style: none;
+  }
+}
+
+@media screen and (max-width: 798px) {
+  .menuIcon {
+    display: block;
+  }
+
+  .navigationList {
+    display: none;
+  }
+}
