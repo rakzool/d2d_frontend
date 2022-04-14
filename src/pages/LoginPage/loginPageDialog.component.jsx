@@ -47,7 +47,7 @@ export default function LoginPageDialog() {
     console.log(response.data.team);
     if (response.data.team) {
       localStorage.setItem("token", response.data.team);
-       
+       alert("Loged in Successfully");
        
      navigate("/dashboard");
     } else {
