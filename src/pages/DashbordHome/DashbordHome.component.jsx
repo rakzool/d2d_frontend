@@ -2,21 +2,35 @@ import React, { useState, useEffect } from "react";
 import { GetTeamDetails } from "../../api/api";
 import Styles from "./DashboardHome.module.scss";
 import Avatar from "./avatar.module";
-import CircularProgress from "@mui/material/CircularProgress";
-import jwt_decode from "jwt-decode";
-import {RiMedalFill} from 'react-icons/ri'
+import CredentialUpdate from "./credentialForm.component";
 
-export default function DashbordHome({ teamName }) {
+import CircularProgress from "@mui/material/CircularProgress";
+import Button from "@mui/material/Button";
+
+
+import { MdLeaderboard } from "react-icons/md";
+import { AiFillGithub } from "react-icons/ai";
+import { BsLink45Deg } from "react-icons/bs";
+import { AiOutlineMail } from "react-icons/ai";
+
+import jwt_decode from "jwt-decode";
+
+export default function DashbordHome() {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  const arr = [1,2,3,4];
+
+  const arr = [1, 2, 3, 4];
+
+
+
+
 
   useEffect(() => {
     const fetchUserDetails = async () => {
       const token = localStorage.getItem("token");
       const user = jwt_decode(token);
       const response = await GetTeamDetails(user.userName);
-      console.log(response);
+      
       setUser(response);
       setTimeout(() => {
         setLoading(false);
@@ -34,36 +48,67 @@ export default function DashbordHome({ teamName }) {
   } else {
     return (
       <div className={Styles.main}>
-        <div className={Styles.conentArea}>
-          <h2>{user.data.teamName}</h2>
-          <div className={Styles.DetailArea}>
-            <h4>Team Size   : &nbsp;<span>{user.teamSize} </span> &nbsp; Members</h4>
-            <h4><div>Team Leader&nbsp; <RiMedalFill />&nbsp;</div> : &nbsp;<span>{user.data.teamLead} </span> </h4>
+        <div className={Styles.contentArea}>
+          <div className={Styles.teamArea}>
+            <h1>{user.data.teamName}</h1>
+            <div className={Styles.teamLeadArea}>
+              <h3>{user.data.teamLead}</h3>
+              <h3 className={Styles.size}>{user.teamSize}</h3>
+            </div>
+            <div className={Styles.Members}>
+              <ul>
+                {arr.map((ele) => {
+                  if (user.data[`member${ele}`] === "") {
+                    return <span key ={ele}></span>;
+                  } else {
+                    return (
+                      <li key={ele}>
+                        <div className={Styles.MembersInner}>
+                          <div className={Styles.avatar}>
+                            <Avatar />
+                          </div>
+                          <div>
+                            <h4>{user.data[`member${ele}`]}</h4>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  }
+                })}
+              </ul>
+              <div>
+                <Button
+                  variant="contained"
+                  sx={{ background: "#589636", textTransform: "initial" }}
+                >
+                  <MdLeaderboard style={{ fontSize: "1.3rem" }} />
+                  &nbsp; View Leaderboard
+                </Button>
+              </div>
+            </div>
           </div>
-          <div className={Styles.members}>
-            <h3>Members</h3> 
-            <ui className={Styles.list}>
-               {arr.map((ele) => {
-                 if(user.data[`member${ele}`] !== ""){
-                   return(
-                     <div className={Styles.listInner} key = {ele}>
-                       <div className={Styles.avatar}>
-                       <Avatar />
-                       </div>
-                       <div className={Styles.memberName}>
-                         <h6>
-                         {user.data[`member${ele}`]}
-                         </h6>
-                       </div>
-                      
-                     </div>
-                   )
-                 }else{
-                   return(null);
-                 }
-
-               })}
-            </ui>
+          <div className={Styles.infoArea}>
+            <div className={Styles.HostArea}>
+              <div>
+                <h1>
+                  <AiFillGithub /> Github Repo URL
+                </h1>
+                <h4>https://github.com/rakzool/d2d_frontend</h4>
+              </div>
+              <div>
+                <h1>
+                  <BsLink45Deg /> Hosted Web Project URL
+                </h1>
+                <h4>https://dare2dev.netlify.app/</h4>
+              </div>
+              <div>
+                <h1>
+                  <AiOutlineMail /> Contact Mail
+                </h1>
+                <h4>{user.email}</h4>
+              </div>
+            </div>
+            <CredentialUpdate />
           </div>
         </div>
       </div>

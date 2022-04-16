@@ -1,14 +1,13 @@
 @import "../../styles/mixin";
 @import "../../styles/Variables";
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&display=swap");
 .main{
-    background-color: #0a192ae8;
+    background-color: #0A192A;
     min-width: 100%;
     min-height: 91.4vh;
     color: white;
-    padding : 2rem;
 }
 
 .mainSpinner{
@@ -20,94 +19,112 @@
 
 }
 
-.conentArea{
-    border: 1px solid rgba(255, 255, 255, 0.555);
-    padding-bottom: 5rem;
-    border-radius: 15px;
-    
-    
-    h2{
-        border-radius: 15px 15px 0px 0px;
+.contentArea{
+    @include flexDesign(row,start,start);
+    font-family: 'Open Sans', sans-serif;
+  
+   min-height: 91.4vh;
+}
+.teamArea{
+    min-height: 91vh;
+    padding : 1.5rem 4rem 0rem 2rem;
+    border-right : 3px Solid rgba(90, 89, 89, 0.432);
+    h1{
         font-size: 2.5rem;
-        padding: 0.3rem 2rem;
-        font-family: 'Fira Code', monospace;
         letter-spacing: 2px;
-        background-color: $Color-accent;
+        margin-bottom:5px;
+        color: $Color-accent;
     }
 
-    .list{
-        width:50%;
-        list-style: none;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-       
-        .avatar{
-            border-radius: 40%;
-            width: 7rem;
-            height : 7rem;
-        }
+    .teamLeadArea{
+        @include flexDesign(row,start,space-between);
+        width: 100%;
     }
-
-    
-}
-
-.listInner{
-     
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.members{
-    padding-left: 5rem;
-    margin-top: 3rem;
-    h3{
-        padding: 1rem 0rem;
-        font-size: 2rem;
-    }
-}
-.memberName{
-    h6{
-        font-family: 'Fira Code', monospace;
+    .size{
         color: $success;
-        padding-top: 1rem;
-        font-size: 1.2rem;
-        letter-spacing: 2px;
     }
 }
 
-.DetailArea{
-    font-family: 'Fira Code', monospace;
-    letter-spacing: 3px;
-    margin-top: 0.5rem;
-    padding: 1.5rem;
-    display :flex;
-    justify-content: flex-start;
+.infoArea{
+    min-height: 91vh;
+    width: 80%;
+   
+
+}
+
+.Members{
+     
+    padding-left: 1rem;
+    margin-top: 3rem;
+    ul{
+        list-style: None;
+        margin-bottom: 6rem;
+        li{
+            margin-bottom:2rem;
+        }
+    }
     
+}
+.MembersInner{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .avatar{
+        height: 5rem;
+        width: 5rem;
+    }
     h4{
+        padding-top: 1rem;
+        margin-left: 1rem;
+        font-size: 1.3rem;
+    }
+}
+
+.HostArea{
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+     
+    div{
+        border: 1px solid $success;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 1rem 2rem 1rem 1rem;
          
-        box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
-        color : white;
-        background-color:  $success;
-       border-radius: 5px;
-        margin-right: 2rem;
+    }
+    h1{
+        color: $Color-accent;
+        font-family: "Rajdhani", sans-serif;
+        font-weight: bold;
         font-size: 1.5rem;
-        padding: 0.5rem 1.5rem;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        span{
-            color: $Background-Dark-Secondary;
-            font-size: 1.5rem;
-            font-weight: bolder;
+        justify-content: flex-start;
+        & :first-child{
+            margin-right: 10px;
+        }
 
-        }
-        div{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        
+    }
+    h4{
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+    }
+}
+
+.FormaArea{
+    h1{
+      padding-left: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+}
+
+form{
+    padding-left: 2.5rem;
+    .AddBtn{
+        margin-top: 3rem;
     }
 }

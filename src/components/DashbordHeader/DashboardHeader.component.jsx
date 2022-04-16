@@ -18,7 +18,7 @@ export default function DashboardHeader({teamName}) {
 
  }
   const appStyle = {
-    backgroundColor: "#0a192a",
+    backgroundColor: "#284363",
     borderColor: "#c2e0ff14",
     borderStyle: "solid",
     backdropFilter: "blur(20px)",

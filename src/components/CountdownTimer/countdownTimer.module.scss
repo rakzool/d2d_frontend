@@ -9,9 +9,7 @@
   }
 }
 
-.secondDial {
-  color: #3399ff;
-}
+
 
 .ClockDial {
   & :first-child {
@@ -23,6 +21,9 @@
     font-family: "Rajdhani", sans-serif;
     font-weight: bolder;
   }
+  .secondDial {
+  color: #3399ff;
+}
 }
 
 @media screen and (max-width: 798px) {
