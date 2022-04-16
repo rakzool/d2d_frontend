@@ -20,7 +20,7 @@
 }
 
 .contentArea{
-    @include flexDesign(row,start,start);
+    @include flexDesign(row,flex-start,flex-start);
     font-family: 'Open Sans', sans-serif;
   
    min-height: 91.4vh;
@@ -37,7 +37,7 @@
     }
 
     .teamLeadArea{
-        @include flexDesign(row,start,space-between);
+        @include flexDesign(row,flex-start,space-between);
         width: 100%;
     }
     .size{
