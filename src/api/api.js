@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseRoute = "https://d2d-backend.onrender.com/";
+const baseRoute = "https://d2d-backend.onrender.com";
 
 const userLogin = async (email, password) => {
   const slug = "/api/login";
